@@ -10,7 +10,7 @@ public class Main {
         bib.greeting();
         bib.browse();
         // Start at the top of the call stack (outside-in)
-        Librarian librarian = new Librarian();
+        Librarian librarian = new Librarian(bib);
         librarian.openLibrary();
 
     }
