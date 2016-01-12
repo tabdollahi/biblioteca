@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -30,6 +31,13 @@ public class BibliotecaTest {
 
     @Test
     public void shouldListBooks() {
-        assertEquals("Book 1", testBib.browse());
+        List<String> books = new ArrayList<>();
+        books.add("Book 1");
+        books.add("Book 2");
+
+        testBib.browse(books);
+
+        verify(testStream).println("Book 1");
+        verify(testStream).println("Book 2");
     }
 }

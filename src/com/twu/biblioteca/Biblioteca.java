@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 
 import java.io.PrintStream;
+import java.util.List;
 
 public class Biblioteca {
 
@@ -15,7 +16,9 @@ public class Biblioteca {
         printStream.println("Welcome to Biblioteca!");
     }
 
-    public String browse(){
-        return "Book 1";
+    public void browse(List<String> books){
+        for(String book : books) {
+            printStream.println(book);
+        }
     }
 }
