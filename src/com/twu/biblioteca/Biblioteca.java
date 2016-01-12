@@ -7,16 +7,18 @@ import java.util.List;
 public class Biblioteca {
 
     private PrintStream printStream;
+    private List<String> books;
 
-    public Biblioteca(PrintStream printStream) {
+    public Biblioteca(PrintStream printStream, List<String> books) {
         this.printStream = printStream;
+        this.books = books;
     }
 
     public void greeting() {
         printStream.println("Welcome to Biblioteca!");
     }
 
-    public void browse(List<String> books){
+    public void browse(){
         for(String book : books) {
             printStream.println(book);
         }

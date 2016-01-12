@@ -16,11 +16,13 @@ public class BibliotecaTest {
 
     Biblioteca testBib;
     PrintStream testStream;
+    private List<String> books;
 
     @Before
     public void setUp() {
         testStream = mock(PrintStream.class);
-        testBib = new Biblioteca(testStream);
+        books = new ArrayList<>();
+        testBib = new Biblioteca(testStream, books);
     }
 
     @Test
@@ -31,13 +33,14 @@ public class BibliotecaTest {
 
     @Test
     public void shouldListBooks() {
-        List<String> books = new ArrayList<>();
         books.add("Book 1");
         books.add("Book 2");
 
-        testBib.browse(books);
+        testBib.browse();
 
         verify(testStream).println("Book 1");
         verify(testStream).println("Book 2");
     }
+
+
 }
