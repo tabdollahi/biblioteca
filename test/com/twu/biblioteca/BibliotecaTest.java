@@ -36,7 +36,7 @@ public class BibliotecaTest {
         books.add("Book 1");
         books.add("Book 2");
 
-        testBib.browse();
+        testBib.displayBooks();
 
         verify(testStream).println("Book 1");
         verify(testStream).println("Book 2");

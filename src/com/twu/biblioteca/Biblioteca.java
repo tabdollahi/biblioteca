@@ -18,9 +18,10 @@ public class Biblioteca {
         printStream.println("Welcome to Biblioteca!");
     }
 
-    public void browse(){
+    public void displayBooks(){
         for(String book : books) {
             printStream.println(book);
         }
     }
+
 }

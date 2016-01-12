@@ -37,10 +37,4 @@ public class BookTest {
         assertEquals(testBook.getAuthorName(), "Austin");
     }
 
-
-    @Test
-    public void shouldReturnSummary() {
-
-    }
-
 }

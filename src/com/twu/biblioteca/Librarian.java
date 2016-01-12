@@ -10,5 +10,6 @@ public class Librarian {
 
     public void openLibrary() {
         biblioteca.greeting();
+        biblioteca.displayBooks();
     }
 }
