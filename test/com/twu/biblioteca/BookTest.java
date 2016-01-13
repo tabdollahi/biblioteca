@@ -2,18 +2,16 @@ package com.twu.biblioteca;
 
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
-import java.io.PrintStream;
-
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 
 public class BookTest {
 
     Book book;
-    PrintStream testStream;
 
     @Before
     public void setup() {
@@ -23,7 +21,22 @@ public class BookTest {
 
     @Test
     public void shouldIncludeTitleWhenPrintingDetails() {
-        assertEquals("  Book 1  |  1992  |  Austin  ", book.print());
+        assertThat(book.print(), containsString("Book 1"));
+    }
+
+    @Test
+    @Ignore
+    public void shouldTruncateTitleWhenTitleLengthIsOver20Characters() {
+    }
+
+    @Test
+    public void shouldIncludePublicationYearWhenPrintingDetails() {
+        assertThat(book.print(), containsString("1992"));
+    }
+
+    @Test
+    public void shouldIncludeAuthorNameYearWhenPrintingDetails() {
+        assertThat(book.print(), containsString("Austin"));
     }
 
 }

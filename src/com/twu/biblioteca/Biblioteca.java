@@ -19,9 +19,10 @@ public class Biblioteca {
     }
 
     public void displayBooks(){
-        printStream.println("  Title  |  Year  |  Author  ");
+        printStream.printf("%-20s%-20s%-20s\n", "Title", "Year", "Author");
+
         for(Book book : books) {
-            book.print();
+            printStream.println(book.print());
         }
     }
 }

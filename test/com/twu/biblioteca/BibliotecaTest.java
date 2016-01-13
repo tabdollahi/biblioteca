@@ -33,17 +33,29 @@ public class BibliotecaTest {
     public void shouldDisplayHeaderWhenListingBooks() {
         testBib.displayBooks();
 
-        verify(testStream).println("  Title  |  Year  |  Author  ");
+        verify(testStream).printf("%-20s%-20s%-20s\n", "Title", "Year", "Author");
 
     }
 
     @Test
-    public void shouldDisplayBookInformationWhenOneBookInLibrary(){
+    public void shouldDisplayOneBookWhenLibraryHasOnlyOneBook() {
         Book book = mock(Book.class);
         books.add(book);
 
         testBib.displayBooks();
-        verify(book, times(books.size())).print();
+        verify(book).print();
+    }
+
+
+    @Test
+    public void shouldDisplayBookInformationForEachBookInLibrary(){
+        Book book = mock(Book.class);
+        Book book2 = mock(Book.class);
+        books.add(book);
+        books.add(book2);
+
+        testBib.displayBooks();
+        verify(book2).print();
     }
 
 }
