@@ -4,6 +4,8 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,12 +17,16 @@ public class BibliotecaTest {
     Biblioteca testBib;
     PrintStream testStream;
     private List<Book> books;
+    private BufferedReader bufferedReader;
+    private Menu menu;
 
     @Before
     public void setUp() {
         testStream = mock(PrintStream.class);
-        books = new ArrayList<>();
-        testBib = new Biblioteca(testStream, books);
+        books = new ArrayList();
+        menu = mock(Menu.class);
+        bufferedReader = mock(BufferedReader.class);
+        testBib = new Biblioteca(testStream, books, bufferedReader, menu);
     }
 
     @Test
@@ -56,4 +62,17 @@ public class BibliotecaTest {
         verify(book2).print();
     }
 
+    @Test
+    public void shouldGetUserInputWhenPrompted() throws IOException {
+        testBib.prompt();
+
+        verify(bufferedReader).readLine();
+    }
+
+    @Test
+    public void shouldDisplayOneMenuItemWhenOnlyOneMenuItem() {
+        testBib.displayMenu();
+
+        verify(menu).display();
+    }
 }

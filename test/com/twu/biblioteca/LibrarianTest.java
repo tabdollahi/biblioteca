@@ -26,11 +26,8 @@ public class LibrarianTest {
     }
 
     @Test
-    public void shouldDisplayBooksWhenOpeningLibrary() {
-
+    public void shouldDisplayMenuWhenOpeningLibrary() {
         librarian.openLibrary();
-        verify(biblioteca).displayBooks();
+        verify(biblioteca).displayMenu();
     }
-
-
 }
