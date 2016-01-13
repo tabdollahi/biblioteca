@@ -12,15 +12,7 @@ public class Book {
         this.authorName = authorName;
     }
 
-    public String getTitle(){
-        return title;
-    }
-
-    public int getPublicationYear() {
-        return publicationYear;
-    }
-
-    public String getAuthorName() {
-        return authorName;
+    public String print(){
+        return String.format("  %s  |  %d  |  %s  ", title, publicationYear, authorName);
     }
 }

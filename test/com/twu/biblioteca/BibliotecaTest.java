@@ -8,15 +8,13 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 public class BibliotecaTest {
 
     Biblioteca testBib;
     PrintStream testStream;
-    private List<String> books;
+    private List<Book> books;
 
     @Before
     public void setUp() {
@@ -32,15 +30,20 @@ public class BibliotecaTest {
     }
 
     @Test
-    public void shouldListBooks() {
-        books.add("Book 1");
-        books.add("Book 2");
-
+    public void shouldDisplayHeaderWhenListingBooks() {
         testBib.displayBooks();
 
-        verify(testStream).println("Book 1");
-        verify(testStream).println("Book 2");
+        verify(testStream).println("  Title  |  Year  |  Author  ");
+
     }
 
+    @Test
+    public void shouldDisplayBookInformationWhenOneBookInLibrary(){
+        Book book = mock(Book.class);
+        books.add(book);
+
+        testBib.displayBooks();
+        verify(book, times(books.size())).print();
+    }
 
 }
