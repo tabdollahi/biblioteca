@@ -13,6 +13,15 @@ public class Book {
     }
 
     public String print(){
-        return String.format("%-20s%-20d%-20s", title, publicationYear, authorName);
+        if(title.length() <= 20) {
+            return String.format("%-20s%-10d%-20s", title, publicationYear, authorName);
+        } else {
+            return String.format("%-20s%-10d%-20s", truncatedTitle(), publicationYear, authorName);
+        }
     }
+
+    private String truncatedTitle(){
+        return title.substring(0,16) + "...";
+    }
+
 }

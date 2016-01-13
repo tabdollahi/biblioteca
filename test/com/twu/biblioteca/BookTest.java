@@ -25,8 +25,12 @@ public class BookTest {
     }
 
     @Test
-    @Ignore
     public void shouldTruncateTitleWhenTitleLengthIsOver20Characters() {
+        String longTitle = "0123456789012345678901";
+        String truncatedTitle = "0123456789012345...";
+        Book longBook = new Book(longTitle, 3017, "Rebecca");
+
+        assertThat(longBook.print(), containsString(truncatedTitle));
     }
 
     @Test

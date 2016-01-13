@@ -33,8 +33,7 @@ public class BibliotecaTest {
     public void shouldDisplayHeaderWhenListingBooks() {
         testBib.displayBooks();
 
-        verify(testStream).printf("%-20s%-20s%-20s\n", "Title", "Year", "Author");
-
+        verify(testStream).printf("%-20s%-10s%-20s\n", "Title", "Year", "Author");
     }
 
     @Test
@@ -45,7 +44,6 @@ public class BibliotecaTest {
         testBib.displayBooks();
         verify(book).print();
     }
-
 
     @Test
     public void shouldDisplayBookInformationForEachBookInLibrary(){
