@@ -1,10 +1,25 @@
 package com.twu.biblioteca;
 
-/**
- * Created by tabdollahi on 1/13/16.
- */
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Menu {
 
+    private PrintStream out;
+    private List<String> options;
+
+    public Menu(PrintStream out) {
+
+        this.out = out;
+
+        options = new ArrayList<String>();
+        options.add("List Books");
+    }
+
     public void display() {
+        for (String option : options) {
+            out.println(option);
+        }
     }
 }

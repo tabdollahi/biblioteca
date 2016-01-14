@@ -12,7 +12,8 @@ public class Main {
         books.add(new Book("Awesome Book", 2016, "Tania"));
         books.add(new Book("Harry Potter and the Sorcerer's Stone", 2000, "J.K. Rowling"));
 
-        Biblioteca bib = new Biblioteca(System.out, books, new BufferedReader(new InputStreamReader(System.in)), new Menu());
+        Biblioteca bib = new Biblioteca(System.out, books,
+                new BufferedReader(new InputStreamReader(System.in)), new Menu(System.out));
         Librarian librarian = new Librarian(bib);
 
         librarian.openLibrary();
