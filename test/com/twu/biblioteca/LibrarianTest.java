@@ -5,16 +5,19 @@ import org.junit.Test;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class LibrarianTest {
 
     private Librarian librarian;
     private Biblioteca biblioteca;
+    private Menu menu;
 
     @Before
     public void setUp() {
         biblioteca = mock(Biblioteca.class);
-        librarian =  new Librarian(biblioteca);
+        menu = mock(Menu.class);
+        librarian =  new Librarian(biblioteca, menu);
 
     }
 
@@ -28,6 +31,13 @@ public class LibrarianTest {
     @Test
     public void shouldDisplayMenuWhenOpeningLibrary() {
         librarian.openLibrary();
-        verify(biblioteca).displayMenu();
+
+        verify(menu).display();
+    }
+
+    @Test
+    public void shouldDisplayBooksWhenOptionOne() {
+        librarian.selectOption("1");
+        verify(biblioteca).displayBooks();
     }
 }

@@ -17,7 +17,6 @@ public class BibliotecaTest {
     Biblioteca testBib;
     PrintStream testStream;
     private List<Book> books;
-    private BufferedReader bufferedReader;
     private Menu menu;
 
     @Before
@@ -25,8 +24,7 @@ public class BibliotecaTest {
         testStream = mock(PrintStream.class);
         books = new ArrayList();
         menu = mock(Menu.class);
-        bufferedReader = mock(BufferedReader.class);
-        testBib = new Biblioteca(testStream, books, bufferedReader, menu);
+        testBib = new Biblioteca(testStream, books, menu);
     }
 
     @Test
@@ -62,17 +60,5 @@ public class BibliotecaTest {
         verify(book2).print();
     }
 
-    @Test
-    public void shouldGetUserInputWhenPrompted() throws IOException {
-        testBib.prompt();
 
-        verify(bufferedReader).readLine();
-    }
-
-    @Test
-    public void shouldDisplayOneMenuItemWhenOnlyOneMenuItem() {
-        testBib.displayMenu();
-
-        verify(menu).display();
-    }
 }
