@@ -9,12 +9,10 @@ public class Biblioteca {
 
     private PrintStream printStream;
     private List<Book> books;
-    private Menu menu; //get rid of me?
 
-    public Biblioteca(PrintStream printStream, List<Book> books, Menu menu) {
+    public Biblioteca(PrintStream printStream, List<Book> books) {
         this.printStream = printStream;
         this.books = books;
-        this.menu = menu;
     }
 
     public void greeting() {

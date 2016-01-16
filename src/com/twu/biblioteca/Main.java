@@ -14,7 +14,7 @@ public class Main {
 
         Menu menu = new Menu(System.out, new BufferedReader(new InputStreamReader(System.in)));
 
-        Biblioteca bib = new Biblioteca(System.out, books, menu);
+        Biblioteca bib = new Biblioteca(System.out, books);
         Librarian librarian = new Librarian(bib, menu);
 
         librarian.openLibrary();
