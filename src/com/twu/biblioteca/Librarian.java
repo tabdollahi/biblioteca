@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import java.io.PrintStream;
+
 public class Librarian {
 
     private Biblioteca biblioteca;
@@ -13,12 +15,14 @@ public class Librarian {
     public void openLibrary() {
         biblioteca.greeting();
         menu.display();
-        String userInput = menu.userInput();
-        selectOption(userInput);
+        String userInput = "";
+        do {
+            userInput = menu.userInput();
+            menu.selectOption(userInput);
+        }
+        while(!userInput.equals("1"));
     }
 
-    public void selectOption(String s) {
-        biblioteca.displayBooks();
-    }
+
 
 }

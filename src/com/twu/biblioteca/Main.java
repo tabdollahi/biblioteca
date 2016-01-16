@@ -12,11 +12,13 @@ public class Main {
         books.add(new Book("Awesome Book", 2016, "Tania"));
         books.add(new Book("Harry Potter and the Sorcerer's Stone", 2000, "J.K. Rowling"));
 
-        Menu menu = new Menu(System.out, new BufferedReader(new InputStreamReader(System.in)));
-
         Biblioteca bib = new Biblioteca(System.out, books);
+        Menu menu = new Menu(System.out, new BufferedReader(new InputStreamReader(System.in)), bib);
+
         Librarian librarian = new Librarian(bib, menu);
 
         librarian.openLibrary();
+
+
     }
 }

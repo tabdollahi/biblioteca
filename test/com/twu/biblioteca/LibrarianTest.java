@@ -3,6 +3,8 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.PrintStream;
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -18,6 +20,7 @@ public class LibrarianTest {
         biblioteca = mock(Biblioteca.class);
         menu = mock(Menu.class);
         librarian =  new Librarian(biblioteca, menu);
+        when(menu.userInput()).thenReturn("1");
 
     }
 
@@ -36,8 +39,11 @@ public class LibrarianTest {
     }
 
     @Test
-    public void shouldDisplayBooksWhenOptionOne() {
-        librarian.selectOption("1");
-        verify(biblioteca).displayBooks();
+    public void shouldLetUserEnterAnotherOptionWhenFirstOptionNotValid() {
+        when(menu.userInput()).thenReturn("invalid input", "1");
+
+        librarian.openLibrary();
+        verify(menu).selectOption("1");
     }
+
 }

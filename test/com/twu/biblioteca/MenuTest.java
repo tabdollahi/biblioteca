@@ -21,12 +21,15 @@ public class MenuTest {
     private Menu menu;
     private PrintStream printStream;
     private BufferedReader bufferedReader;
+    private Biblioteca biblioteca;
+
 
     @Before
     public void setup() {
         printStream = mock(PrintStream.class);
         bufferedReader = mock(BufferedReader.class);
-        menu = new Menu(printStream, bufferedReader);
+        biblioteca = mock(Biblioteca.class);
+        menu = new Menu(printStream, bufferedReader, biblioteca);
     }
 
     @Test
@@ -58,7 +61,17 @@ public class MenuTest {
         assertThat(userInput, is(""));
     }
 
+    @Test
+    public void shouldDisplayBooksWhenOptionOne() {
+        menu.selectOption("1");
+        verify(biblioteca).displayBooks();
+    }
 
+    @Test
+    public void shouldTellUserToSelectValidOptionWhenUserSelectedInvalidOption() {
+        menu.selectOption("invalid option");
+        verify(printStream).println("Select a valid option!");
+    }
 
 
 }
