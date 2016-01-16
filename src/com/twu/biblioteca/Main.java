@@ -13,9 +13,12 @@ public class Main {
         books.add(new Book("Harry Potter and the Sorcerer's Stone", 2000, "J.K. Rowling"));
 
         Biblioteca bib = new Biblioteca(System.out, books);
-        Menu menu = new Menu(System.out, new BufferedReader(new InputStreamReader(System.in)), bib);
 
-        Librarian librarian = new Librarian(bib, menu);
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        UserInput userInput = new UserInput(bufferedReader);
+        Menu menu = new Menu(System.out, bib);
+
+        Librarian librarian = new Librarian(bib, menu, userInput);
 
         librarian.openLibrary();
 

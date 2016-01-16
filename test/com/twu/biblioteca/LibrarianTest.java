@@ -3,24 +3,22 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.PrintStream;
-
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class LibrarianTest {
 
     private Librarian librarian;
     private Biblioteca biblioteca;
     private Menu menu;
+    private UserInput userInput;
 
     @Before
     public void setUp() {
         biblioteca = mock(Biblioteca.class);
         menu = mock(Menu.class);
-        librarian =  new Librarian(biblioteca, menu);
-        when(menu.userInput()).thenReturn("1");
+        userInput = mock(UserInput.class);
+        librarian =  new Librarian(biblioteca, menu, userInput);
+        when(userInput.get()).thenReturn("1");
 
     }
 
@@ -40,7 +38,7 @@ public class LibrarianTest {
 
     @Test
     public void shouldLetUserEnterAnotherOptionWhenFirstOptionNotValid() {
-        when(menu.userInput()).thenReturn("invalid input", "1");
+        when(userInput.get()).thenReturn("invalid input", "1");
 
         librarian.openLibrary();
         verify(menu).selectOption("1");
