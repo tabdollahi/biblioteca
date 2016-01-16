@@ -8,6 +8,7 @@ import java.io.PrintStream;
 import static org.mockito.Matchers.contains;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class MenuTest {
 
@@ -46,6 +47,5 @@ public class MenuTest {
         menu.selectOption("invalid option");
         verify(printStream).println("Select a valid option!");
     }
-
 
 }

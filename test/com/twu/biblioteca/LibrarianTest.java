@@ -44,4 +44,11 @@ public class LibrarianTest {
         verify(menu).selectOption("1");
     }
 
+//    @Test
+//    public void shouldExecuteNoCommandsWhenUserEntersQ() {
+//        when(userInput.get()).thenReturn("q");
+//
+//        librarian.openLibrary();
+//
+//    }
 }
