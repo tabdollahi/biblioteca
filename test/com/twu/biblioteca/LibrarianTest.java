@@ -8,16 +8,16 @@ import static org.mockito.Mockito.*;
 public class LibrarianTest {
 
     private Librarian librarian;
-    private Biblioteca biblioteca;
+    private Library library;
     private Menu menu;
     private UserInput userInput;
 
     @Before
     public void setUp() {
-        biblioteca = mock(Biblioteca.class);
+        library = mock(Library.class);
         menu = mock(Menu.class);
         userInput = mock(UserInput.class);
-        librarian =  new Librarian(biblioteca, menu, userInput);
+        librarian =  new Librarian(library, menu, userInput);
         when(userInput.get()).thenReturn("1");
 
     }
@@ -26,7 +26,7 @@ public class LibrarianTest {
     public void shouldGreetUserWhenOpeningLibrary() {
 
         librarian.openLibrary();
-        verify(biblioteca).greeting();
+        verify(library).greeting();
     }
 
     @Test

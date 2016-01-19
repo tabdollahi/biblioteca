@@ -1,22 +1,21 @@
 package com.twu.biblioteca;
 
 
-import java.io.BufferedReader;
 import java.io.PrintStream;
 import java.util.List;
 
-public class Biblioteca {
+public class Library {
 
     private PrintStream printStream;
     private List<Book> books;
 
-    public Biblioteca(PrintStream printStream, List<Book> books) {
+    public Library(PrintStream printStream, List<Book> books) {
         this.printStream = printStream;
         this.books = books;
     }
 
     public void greeting() {
-        printStream.println("Welcome to Biblioteca!");
+        printStream.println("Welcome to Library!");
     }
 
     public void displayBooks(){

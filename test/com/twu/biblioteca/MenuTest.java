@@ -4,24 +4,27 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.PrintStream;
+import java.util.HashMap;
 
 import static org.mockito.Matchers.contains;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 public class MenuTest {
 
     private Menu menu;
     private PrintStream printStream;
-    private Biblioteca biblioteca;
+    private HashMap<String, Command> commandMap;
+    private Command command;
 
 
     @Before
     public void setup() {
         printStream = mock(PrintStream.class);
-        biblioteca = mock(Biblioteca.class);
-        menu = new Menu(printStream, biblioteca);
+        commandMap = new HashMap<String, Command>();
+        command = mock(DisplayBooks.class);
+        commandMap.put("1", command);
+        menu = new Menu(printStream, commandMap);
     }
 
     @Test
@@ -39,7 +42,7 @@ public class MenuTest {
     @Test
     public void shouldDisplayBooksWhenOptionOne() {
         menu.selectOption("1");
-        verify(biblioteca).displayBooks();
+        verify(command).execute();
     }
 
     @Test

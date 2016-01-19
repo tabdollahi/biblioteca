@@ -2,14 +2,14 @@ package com.twu.biblioteca;
 
 public class DisplayBooks implements Command {
 
-    private Biblioteca biblioteca;
+    private Library library;
 
-    public DisplayBooks(Biblioteca biblioteca){
+    public DisplayBooks(Library library){
 
-        this.biblioteca = biblioteca;
+        this.library = library;
     }
     @Override
     public void execute() {
-        biblioteca.displayBooks();
+        library.displayBooks();
     }
 }
