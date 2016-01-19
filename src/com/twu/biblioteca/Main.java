@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.commands.Command;
-import com.twu.biblioteca.commands.DisplayBooks;
+import com.twu.biblioteca.commands.ListBookCommand;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -21,7 +21,7 @@ public class Main {
 
         Map<String, Command> commandMap = new HashMap<String, Command>();
 
-        commandMap.put("1", new DisplayBooks(library));
+        commandMap.put("1", new ListBookCommand(library));
 
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         UserInputGetter userInputGetter = new UserInputGetter(bufferedReader);

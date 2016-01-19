@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.commands.Command;
-import com.twu.biblioteca.commands.DisplayBooks;
+import com.twu.biblioteca.commands.ListBookCommand;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,6 +11,7 @@ import java.util.HashMap;
 import static org.mockito.Matchers.contains;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class MenuTest {
 
@@ -24,20 +25,26 @@ public class MenuTest {
     public void setup() {
         printStream = mock(PrintStream.class);
         commandMap = new HashMap<String, Command>();
-        command = mock(DisplayBooks.class);
+        command = mock(ListBookCommand.class);
         commandMap.put("1", command);
         menu = new Menu(printStream, commandMap);
     }
 
     @Test
     public void shouldDisplayOneMenuItemWhenHasOneMenuItem() {
+        when(command.getLabel()).thenReturn("List Books");
+
         menu.display();
+
         verify(printStream).println(contains("List Books"));
     }
 
     @Test
     public void shouldDisplaySelectionNumberWhenDisplayingMenuItems() {
+        when(command.getLabel()).thenReturn("List Books");
+
         menu.display();
+
         verify(printStream).println(contains("1"));
     }
 
