@@ -11,21 +11,21 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class UserInputTest {
+public class UserInputGetterTest {
 
     private BufferedReader bufferedReader;
-    private UserInput userInput;
+    private UserInputGetter userInputGetter;
 
     @Before
     public void setup(){
         bufferedReader = mock(BufferedReader.class);
-        userInput = new UserInput(bufferedReader);
+        userInputGetter = new UserInputGetter(bufferedReader);
     }
 
     @Test
     public void shouldGetUserInputWhenPrompted() throws IOException {
         when(bufferedReader.readLine()).thenReturn("some string");
-        String userInputString = userInput.get();
+        String userInputString = userInputGetter.get();
 
         assertThat(userInputString, is("some string"));
     }
@@ -34,7 +34,7 @@ public class UserInputTest {
     public void shouldGetEmptyStringWhenAnExceptionIsThrown() throws IOException {
         when(bufferedReader.readLine()).thenThrow(new IOException());//ask Bill
 
-        String userInputString = userInput.get();
+        String userInputString = userInputGetter.get();
 
         assertThat(userInputString, is(""));
     }

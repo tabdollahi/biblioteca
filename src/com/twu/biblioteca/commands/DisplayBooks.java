@@ -1,4 +1,7 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.commands;
+
+import com.twu.biblioteca.Library;
+import com.twu.biblioteca.commands.Command;
 
 public class DisplayBooks implements Command {
 

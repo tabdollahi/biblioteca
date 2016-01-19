@@ -1,5 +1,8 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.commands.Command;
+import com.twu.biblioteca.commands.DisplayBooks;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -21,10 +24,10 @@ public class Main {
         commandMap.put("1", new DisplayBooks(library));
 
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        UserInput userInput = new UserInput(bufferedReader);
+        UserInputGetter userInputGetter = new UserInputGetter(bufferedReader);
         Menu menu = new Menu(System.out, commandMap);
 
-        Librarian librarian = new Librarian(library, menu, userInput);
+        Librarian librarian = new Librarian(library, menu, userInputGetter);
 
         librarian.openLibrary();
 

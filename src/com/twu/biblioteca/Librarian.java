@@ -5,12 +5,12 @@ public class Librarian {
 
     private Library library;
     private Menu menu;
-    private UserInput userInput;
+    private UserInputGetter userInputGetter;
 
-    public Librarian(Library library, Menu menu, UserInput userInput) {
+    public Librarian(Library library, Menu menu, UserInputGetter userInputGetter) {
         this.library = library;
         this.menu = menu;
-        this.userInput = userInput;
+        this.userInputGetter = userInputGetter;
     }
 
     public void openLibrary() {
@@ -19,7 +19,7 @@ public class Librarian {
 
         String userInputString = "";
         do {
-            userInputString = userInput.get();
+            userInputString = userInputGetter.get();
             menu.selectOption(userInputString);
         }
         while(!userInputString.equals("1"));

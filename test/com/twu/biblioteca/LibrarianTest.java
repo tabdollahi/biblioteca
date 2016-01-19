@@ -10,15 +10,15 @@ public class LibrarianTest {
     private Librarian librarian;
     private Library library;
     private Menu menu;
-    private UserInput userInput;
+    private UserInputGetter userInputGetter;
 
     @Before
     public void setUp() {
         library = mock(Library.class);
         menu = mock(Menu.class);
-        userInput = mock(UserInput.class);
-        librarian =  new Librarian(library, menu, userInput);
-        when(userInput.get()).thenReturn("1");
+        userInputGetter = mock(UserInputGetter.class);
+        librarian =  new Librarian(library, menu, userInputGetter);
+        when(userInputGetter.get()).thenReturn("1");
 
     }
 
@@ -38,17 +38,9 @@ public class LibrarianTest {
 
     @Test
     public void shouldLetUserEnterAnotherOptionWhenFirstOptionNotValid() {
-        when(userInput.get()).thenReturn("invalid input", "1");
+        when(userInputGetter.get()).thenReturn("invalid input", "1");
 
         librarian.openLibrary();
         verify(menu).selectOption("1");
     }
-
-//    @Test
-//    public void shouldExecuteNoCommandsWhenUserEntersQ() {
-//        when(userInput.get()).thenReturn("q");
-//
-//        librarian.openLibrary();
-//
-//    }
 }

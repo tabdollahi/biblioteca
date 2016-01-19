@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.commands.Command;
+import com.twu.biblioteca.commands.DisplayBooks;
 import org.junit.Before;
 import org.junit.Test;
 
