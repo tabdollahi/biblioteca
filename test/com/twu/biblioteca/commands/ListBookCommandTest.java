@@ -31,6 +31,4 @@ public class ListBookCommandTest {
         assertThat("List Books", is(listBookCommand.getLabel()));
     }
 
-
-
 }

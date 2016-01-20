@@ -43,4 +43,15 @@ public class LibrarianTest {
         librarian.openLibrary();
         verify(menu).selectOption("1");
     }
+
+//    @Test
+//    public void shouldStopPromptingUserForInputOnQuit() {
+//
+//        QuitCommand quit = mock(QuitCommand.class);
+//
+//        when(userInputGetter.get()).thenReturn("1", "Quit");
+//        when(quitMenu).thenReturn(true);
+//
+//        verify(quit).execute();
+//    }
 }

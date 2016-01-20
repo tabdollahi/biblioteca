@@ -25,7 +25,7 @@ public class Main {
 
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         UserInputGetter userInputGetter = new UserInputGetter(bufferedReader);
-        Menu menu = new Menu(System.out, commandMap);
+        Menu menu = new Menu(System.out, userInputGetter, commandMap);
 
         Librarian librarian = new Librarian(library, menu, userInputGetter);
 
